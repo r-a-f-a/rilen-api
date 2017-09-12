@@ -1,0 +1,166 @@
+{% set totalProducts = products | length %}
+{% set totalRecommendations = recommendations | length %}
+{% if totalProducts > 0 %}
+  {% for i in 0..(totalProducts - 1) %}
+  <!-- 1PL -->
+  <table class="row" align="center" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%; max-width: 800px;">
+    <tbody>
+      <tr style="padding: 0; text-align: left; vertical-align: top;">
+        <th class="small-12 large-12 columns first last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-right: 16px; text-align: left; width: 564px;">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tr style="padding: 0; text-align: left; vertical-align: top;">
+              <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                <a href="{{ products[i]['productLink'] }}" style="border: none; text-decoration: none;"><img class="offer-card__image" src="{{ products[i]['image'] }}" style="-ms-interpolation-mode: bicubic; clear: both; display: block; max-width: 100%; min-width: 100%; outline: none; padding: 0; text-decoration: none; width: 100%;"></a>
+                <div class="offer-card__content offer-card__content-top" style="background-color: #fff; border: 1px solid #c6c6c6; border-top: 0; margin: 0; padding: 15px; padding-bottom: 0;">
+                  <table class="row collapse" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+                    <tbody>
+                      <tr style="padding: 0; text-align: left; vertical-align: top;">
+                        <th class="small-12 large-8 columns first" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 66.66667%;">
+                          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                              <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                                <strong class="offer-card__support-text" style="color: #656565; font-family: verdana; font-size: 11px; font-weight: normal; margin: 0; padding: 0; text-transform: uppercase;">{{ products[i]['city'] }}</strong>
+                                <h3 class="offer-card__title" style="Margin: 0; Margin-bottom: 10px; color: #000; font-family: verdana; font-size: 16px; font-weight: 400; line-height: 16px; margin: 5px 0 0; margin-bottom: 10px; padding: 0; text-align: left; word-wrap: normal;">{{ products[i]['establishment'] }}</h3>
+                                <ul class="offer-card__amenities" style="line-height: 14px; margin: 10px 0; padding: 0;">
+                                  <li class="offer-card__amenity" style="color: #666; display: inline-block; font-family: verdana; font-size: 11px; font-weight: normal; line-height: 14px; list-style: none; margin: 0 10px 0 0; padding: 0;">{{ products[i]['condition'] }}</li>
+                                  <li class="offer-card__amenity" style="color: #666; display: inline-block; font-family: verdana; font-size: 11px; font-weight: normal; line-height: 14px; list-style: none; margin: 0 10px 0 0; padding: 0;">{{ products[i]['attribute1'] }}</li>
+                                  <li class="offer-card__amenity" style="color: #666; display: inline-block; font-family: verdana; font-size: 11px; font-weight: normal; line-height: 14px; list-style: none; margin: 0 10px 0 0; padding: 0;">{{ products[i]['attribute2'] }}</li>
+                                </ul>
+                              </th>
+                            </tr>
+                          </table>
+                        </th>
+                        <th class="small-12 large-4 columns last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 33.33333%;">
+                          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                              <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                                <table class="row collapse offer-card__bottom-content-main" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+                                  <tbody>
+                                    <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                      <th class="offer-card__block small-6 large-12 columns first" style="Margin: 0 auto; color: #0a0a0a; display: block; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; text-align: left; vertical-align: middle; width: 100%;">
+                                        <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                                          <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                            <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                                              <div class="offer-card__container-prices" style="display: inline-block; margin: 0; padding: 0; vertical-align: middle; width: 100%;">
+                                                <p class="small-text-left text-right" style="Margin: 0; Margin-bottom: 10px; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; margin-bottom: 10px; padding: 0; text-align: right;">
+                                                  <span class="offer-card__price-small-text text-right small-text-left" style="color: #000; display: block; font-family: verdana; font-size: 12px; font-weight: normal; margin: 0; padding: 0; text-align: right;">A partir de:</span>
+                                                  <strong class="offer-card__price-big-text small-text-left" style="display: block; font-family: verdana; font-size: 33px; font-weight: bold; margin: 4px 0 1px; padding: 0;"><small class="offer-card__price-real-text" style="color: #000; font-family: verdana; font-size: 18px; font-weight: bold; margin: 0; padding: 0;">R$</small>{{ products[i]['priceBy'] }}</strong>
+                                                  <span class="offer-card__price-small-text text-right small-text-left" style="color: #000; display: block; font-family: verdana; font-size: 12px; font-weight: normal; margin: 0; padding: 0; text-align: right;"><strong> em até 12x</strong></span>
+                                                </p>
+                                              </div>
+                                            </th>
+                                            <th class="expander" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0 !important; text-align: left; visibility: hidden; width: 0;"></th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                      <th class="offer-card__block small-6 large-12 columns last" style="Margin: 0 auto; color: #0a0a0a; display: block; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; text-align: left; vertical-align: middle; width: 100%;">
+                                        <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                                          <tr style="padding: 0; text-align: left; vertical-align: top;">
+                                            <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                                              <p class="text-right offer-card__container-link text-right small-text-right" style="Margin: 0; Margin-bottom: 10px; color: #0a0a0a; display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; margin-bottom: 10px; padding: 0; text-align: right; vertical-align: middle; width: 100%;">
+                                                <a class="offer-card__link" href="{{ products[i]['productLink'] }}" title="" style="Margin: 0; background-color: #ff8432; border-radius: 3px; color: #fff; display: inline-block; font-family: verdana; font-weight: normal; height: 31px; line-height: 1.3; margin: 0; padding: 9px 0 0; text-align: center; text-decoration: none; width: 110px;">Veja mais</a>
+                                              </p>
+                                            </th>
+                                            <th class="expander" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0 !important; text-align: left; visibility: hidden; width: 0;"></th>
+                                          </tr>
+                                        </table>
+                                      </th>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <!-- END 1PL -->
+  {% endfor %}
+{% endif %}
+
+{% if totalRecommendations > 0 %}
+  <table class="row" align="center" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%; max-width: 800px">
+    <tbody>
+      <tr style="padding: 0; text-align: left; vertical-align: top;">
+        <th class="small-12 large-12 columns first last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-right: 16px; text-align: left; width: 564px;">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tr style="padding: 0; text-align: left; vertical-align: top;">
+              <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                <h4 class="hu-email-mkrt__title" style="Margin: 0; Margin-bottom: 10px; color: inherit; font: normal 24px Verdana, arial, tahoma; font-family: Helvetica, Arial, sans-serif; font-size: 24px; font-weight: normal; line-height: 1.3; margin: 20px 0 0; margin-bottom: 10px; padding: 0; text-align: center; word-wrap: normal;">
+                  Ofertas selecionadas <strong class="hu-email-mkrt__title-bold" style="font-weight: bold;">pra você</strong><br></h4>
+              </th>
+              <th class="expander" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0 !important; text-align: left; visibility: hidden; width: 0;"></th>
+            </tr>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  {% for r in 0..(totalRecommendations - 1) %}
+    <table class="row" align="center" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%; max-width: 800px">
+      <tbody>
+        <tr style="padding: 0; text-align: left; vertical-align: top;">
+          <th class="small-12 large-12 columns first last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-right: 16px; text-align: left; width: 564px;">
+            <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+              <tr style="padding: 0; text-align: left; vertical-align: top;">
+                <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                  <table class="row collapse" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+                    <tbody>
+                      <tr style="padding: 0; text-align: left; vertical-align: top;">
+                        <th class="no-padding small-12 large-6 columns first" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0 !important; padding-bottom: 16px; padding-left: 0; padding-right: 0; text-align: left; width: 50%;">
+                          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                              <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                                <a href="{{ recommendations[r]['productLink'] }}" style="border: none; text-decoration: none;"><img class="offer-card__image" src="{{ recommendations[r]['image'] }}" style="-ms-interpolation-mode: bicubic; clear: both; display: block; max-width: 100%; min-width: 100%; outline: none; padding: 0; text-decoration: none; width: 100%;"></a>
+                              </th>
+                            </tr>
+                          </table>
+                        </th>
+                        <th class="no-padding-bottom small-12 large-6 columns last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0 auto; padding: 0; padding-bottom: 0 !important; padding-left: 0; padding-right: 0; text-align: left; width: 50%;">
+                          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                            <tr style="padding: 0; text-align: left; vertical-align: top;">
+                              <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; padding: 0; text-align: left;">
+                                <div class="offer-card__content offer-card__content-main" style="background-color: #fff; border: 1px solid #c6c6c6; border-top: 0; margin: 0; padding: 15px;">
+                                  <strong class="offer-card__support-text" style="color: #656565; font-family: verdana; font-size: 11px; font-weight: normal; margin: 0; padding: 0; text-transform: uppercase;">{{ recommendations[r]['city'] }}</strong>
+                                  <h3 class="offer-card__title" style="Margin: 0; Margin-bottom: 10px; color: #000; font-family: verdana; font-size: 16px; font-weight: 400; line-height: 16px; margin: 5px 0 0; margin-bottom: 10px; padding: 0; text-align: left; word-wrap: normal;">{{ recommendations[r]['establishment'] }}</h3>
+                                  <ul class="offer-card__amenities" style="line-height: 14px; margin: 10px 0; padding: 0;">
+                                    <li class="offer-card__amenity" style="color: #666; display: inline-block; font-family: verdana; font-size: 11px; font-weight: normal; line-height: 14px; list-style: none; margin: 0 10px 0 0; padding: 0;">{{ recommendations[r]['condition'] }}</li>
+                                    <li class="offer-card__amenity" style="color: #666; display: inline-block; font-family: verdana; font-size: 11px; font-weight: normal; line-height: 14px; list-style: none; margin: 0 10px 0 0; padding: 0;">{{ recommendations[r]['attribute1'] }}</li>
+                                    <li class="offer-card__amenity" style="color: #666; display: inline-block; font-family: verdana; font-size: 11px; font-weight: normal; line-height: 14px; list-style: none; margin: 0 10px 0 0; padding: 0;">{{ recommendations[r]['attribute2'] }}</li>
+                                  </ul>
+                                  <div class="offer-card__bottom-content" style="display: inline-block; margin: 0; padding: 0; white-space: nowrap; width: 100%;">
+                                    <div class="offer-card__container-prices" style="display: inline-block; margin: 0; padding: 0; vertical-align: middle; width: 50%;">
+                                      <span class="offer-card__price-small-text" style="color: #000; display: block; font-family: verdana; font-size: 12px; font-weight: normal; margin: 0; padding: 0; text-align: left;">A partir de:</span>
+                                      <strong class="offer-card__price-big-text" style="display: block; font-family: verdana; font-size: 33px; font-weight: bold; margin: 4px 0 1px; padding: 0;"><small class="offer-card__price-real-text" style="color: #000; font-family: verdana; font-size: 18px; font-weight: bold; margin: 0; padding: 0;">R$</small>{{ recommendations[r]['priceBy'] }}</strong>
+                                      <span class="offer-card__price-small-text" style="color: #000; display: block; font-family: verdana; font-size: 12px; font-weight: normal; margin: 0; padding: 0; text-align: left;"></span>
+                                    </div>
+                                    <p class="text-right offer-card__container-link" style="Margin: 0; Margin-bottom: 10px; color: #0a0a0a; display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 19px; margin: 0; margin-bottom: 10px; padding: 0; text-align: right; vertical-align: middle; width: 50%;">
+                                      <a class="offer-card__link" href="{{ recommendations[r]['productLink'] }}" title="" style="Margin: 0; background-color: #ff8432; border-radius: 3px; color: #fff; display: inline-block; font-family: verdana; font-weight: normal; height: 31px; line-height: 1.3; margin: 0; padding: 9px 0 0; text-align: center; text-decoration: none; width: 110px;">Veja mais</a>
+                                    </p>
+                                  </div>
+                                </div>
+                              </th>
+                            </tr>
+                          </table>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </th>
+              </tr>
+            </table>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  {% endfor %}
+{% endif %}

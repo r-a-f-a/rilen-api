@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  dev-panel-api:
+       build:
+          context: ../../.
+          dockerfile: ./docker/development/Dockerfile
+          args:
+            - env=local
+       volumes:
+         - ../../.:/home/
+         - /sys/fs/cgroup:/sys/fs/cgroup:ro
+         - /etc/localtime:/etc/localtime
+       container_name: dev-panel-api
+       environment:
+         - APP_ENV=local
+         - TERM=xterm-256color
+       privileged: true
+       expose:
+         - "80"
+       ports:
+         - "8004:80"
+

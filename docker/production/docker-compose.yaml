@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  prod-panel-api:
+       build:
+          context: ../../.
+          dockerfile: ./docker/production/Dockerfile
+          args:
+            - env=production
+       volumes:
+         - ../../.:/home/
+         - /sys/fs/cgroup:/sys/fs/cgroup:ro
+         - /etc/localtime:/etc/localtime
+       container_name: prod-panel-api
+       environment:
+         - APP_ENV=production
+         - TERM=xterm-256color
+       privileged: true
+       expose:
+         - "80"
+       ports:
+         - "80:80"
+       restart: always
+

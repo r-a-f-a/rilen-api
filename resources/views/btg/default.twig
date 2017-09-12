@@ -1,0 +1,1131 @@
+{% set totalProducts = products|length %}
+{% set totalRecommendations = recommendations|length %}
+
+<!-- START PRODUCTS LIST -->
+{% if  totalProducts > 0 %}
+<table width="596" bgcolor="{{ configs['borderColor'] }}" cellpadding="0" cellspacing="0" align="center">
+    <tbody>
+    <tr>
+        <td height="10"></td>
+    </tr>
+    <!-- Start Featured Product -->
+    <tr>
+        <td>
+            <table bgcolor="{{ configs['borderColor'] }}" cellpadding="0" cellspacing="2" width="100%" align="center">
+                <tbody>
+                <tr>
+                    <td>
+                        <table bgcolor="#ffffff" cellpadding="5" cellspacing="0" width="100%" align="center">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <a href="{{ products[1]['link'] }}" style="text-decoration: none;" target="_blank">
+                                        <img border="0" src="{{ products[1]['image'] }}" width="200"
+                                             alt="Imagem indispon&iacute;vel">
+                                    </a>
+                                </td>
+                                <td>
+                                    <table align="center">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="{{ products[1]['link'] }}" style="text-decoration: none;"
+                                                   target="_blank">
+                                                    <strong>
+                                                        <font face="{{ configs['font'] }}"
+                                                              size="{{ configs['titleSize'] }}"
+                                                              color="{{ configs['titleColor'] }}">
+                                                            {{ products[1]['name'] }}
+                                                        </font>
+                                                    </strong>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#ffffff">
+                                                <strong>
+                                                    <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="#9b9b9b">
+                                                        POR
+                                                    </font>
+                                                    <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}"
+                                                          color="{{ configs['priceColor'] }}">
+                                                        {{ products[1]['price'] }}
+                                                    </font>
+                                                    <br><br>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>  {% if configs.buttonType == 1 %}
+                                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                                        <tr>
+                                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                                <strong>
+                                                                    <a target="_blank" href="{{ products[1]['link'] }}" style="text-decoration: none;">
+                                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                                    </a>
+                                                                </strong>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                {% else %}
+                                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <a target="_blank" href="{{ products[1]['link'] }}" style="text-decoration: none;">
+                                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                {% endif %}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- End Featured Product -->
+
+
+    <!-- Start 3 Per Line Template -->
+    {% if totalProducts in [4,7,10] %}
+        {% set totalList = (totalProducts - 1) / 3 %}
+        {% set c = 2%}
+        {% for i in 1..totalList %}
+
+            <tr>
+                <td height="10"></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" align="center">
+                        <tbody>
+                        <tr>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center"><br>
+                                <a href="{{ products[c]['link'] }}" style="text-decoration: none;" target="_blank">
+                                    <img border="0" src="{{ products[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                         alt="Imagem indispon&iacute;vel">
+                                </a>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center"><br>
+                                <a href="{{ products[(c + 1)]['link'] }}" style="text-decoration: none;" target="_blank">
+                                    <img border="0" src="{{ products[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                         alt="Imagem indispon&iacute;vel">
+                                </a>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center"><br>
+                                <a href="{{ products[(c + 2)]['link'] }}" style="text-decoration: none;" target="_blank">
+                                    <img border="0" src="{{ products[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                         alt="Imagem indispon&iacute;vel">
+                                </a>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                            face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                            color="{{ configs['titleColor'] }}"><br>{{ products[c]['name'] }}<br></font></strong>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                            face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                            color="{{ configs['titleColor'] }}"><br>{{ products[(c + 1)]['name'] }}<br></font></strong>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                            face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                            color="{{ configs['titleColor'] }}"><br>{{ products[(c + 2)]['name'] }}<br></font></strong>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        
+                        
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center"><br>
+                                <hr color="#cccccc" size="1" width="170">
+                                {% if products[c]['price'] <  products[c]['priceFrom']%}
+                                    <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ products[c]['priceFrom'] }}</font></p>
+                                {% endif  %}
+                                <p>
+                                <strong>
+                                    <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                    <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ products[c]['price'] }}</font>
+                                </strong>
+                                </p>
+                                <hr color="#cccccc" size="1" width="170">
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center"><br>
+                                <hr color="#cccccc" size="1" width="170">
+                                {% if products[(c + 1)]['price'] <  products[(c + 1)]['priceFrom']%}
+                                    <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ products[(c + 1)]['priceFrom'] }}</font></p>
+                                {% endif  %}
+                                <p>
+                                    <strong>
+                                        <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                        <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ products[(c + 1)]['price'] }}</font>
+                                    </strong>
+                                </p>
+                                <hr color="#cccccc" size="1" width="170">
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center"><br>
+                                <hr color="#cccccc" size="1" width="170">
+                                {% if products[(c + 2)]['price'] <  products[(c + 2)]['priceFrom']%}
+                                    <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ products[(c + 2)]['priceFrom'] }}</font></p>
+                                {% endif  %}
+                                <p>
+                                    <strong>
+                                        <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                        <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ products[(c + 2)]['price'] }}</font>
+                                    </strong>
+                                </p>
+                                <hr color="#cccccc" size="1" width="170">
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="60" bgcolor="#ffffff" align="center">
+                                {% if configs.buttonType == 1 %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                        <tr>
+                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                <strong>
+                                                    <a target="_blank" href="{{ products[c]['link'] }}" style="text-decoration: none;">
+                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                    </a>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% else %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                <a target="_blank" href="{{ products[c]['link'] }}" style="text-decoration: none;">
+                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}"  alt="Imagem indispon&iacute;vel" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="60" bgcolor="#ffffff" align="center">
+                               <!-- BUTTON 2 -->
+                                {% if configs.buttonType == 1 %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                        <tr>
+                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                <strong>
+                                                    <a target="_blank" href="{{ products[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                    </a>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% else %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                <a target="_blank" href="{{ products[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" bgcolor="#ffffff" align="center">
+                               <!-- BUTTON 3 -->
+                                {% if configs.buttonType == 1 %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                        <tr>
+                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                <strong>
+                                                    <a target="_blank" href="{{ products[(c + 2)]['link'] }}" style="text-decoration: none;">
+                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                    </a>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% else %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                <a target="_blank" href="{{ products[(c + 2)]['link'] }}" style="text-decoration: none;">
+                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="{{ configs['borderColor'] }}" height="10" colspan="11"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {% set c =  c + 3%}
+        {% endfor %}
+    <!-- END 3 Per Line Template -->
+
+
+
+    <!-- START 2 Per Line Template -->
+    {% elseif totalProducts in [3,5] %}
+        {% set totalList = (totalProducts - 1) / 2 %}
+        {% set c = 2%}
+        {% for i in 1..totalList %}
+            <tr>
+                <td height="10"></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" align="center">
+                        <tbody>
+                        <tr>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" bgcolor="#ffffff" align="center"><br>
+                                <a href="{{ products[c]['link'] }}" style="text-decoration: none;" target="_blank">
+                                    <img border="0" src="{{ products[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                         alt="Imagem indispon&iacute;vel">
+                                </a>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" bgcolor="#ffffff" align="center"><br> <a href="{{ products[(c + 1)]['link'] }}" style="text-decoration: none;" target="_blank">
+                                    <img border="0" src="{{ products[(c + 1)]['image'] }}" width="{{ configs['imageSize'] }}"
+                                         alt="Imagem indispon&iacute;vel">
+                                </a>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                            face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                            color="{{ configs['titleColor'] }}"><br>{{ products[c]['name'] }}<br></font></strong>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                            face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                            color="{{ configs['titleColor'] }}"><br>{{ products[(c + 1)]['name'] }}<br></font></strong>
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" bgcolor="#ffffff" align="center"><br>
+                                <hr color="#cccccc" size="1" width="220">
+                                {% if products[c]['price'] <  products[c]['priceFrom']%}
+                                    <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ products[c]['priceFrom'] }}</font></p>
+                                {% endif  %}
+                                <p>
+                                    <strong>
+                                        <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                        <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ products[c]['price'] }}</font>
+                                    </strong>
+                                </p>
+                                <hr color="#cccccc" size="1" width="220">
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" bgcolor="#ffffff" align="center"><br>
+                                <hr color="#cccccc" size="1" width="220">
+                                {% if products[(c + 1)]['price'] <  products[(c + 1)]['priceFrom']%}
+                                    <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ products[(c + 1)]['priceFrom'] }}</font></p>
+                                {% endif  %}
+                                <p>
+                                    <strong>
+                                        <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                        <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ products[(c + 1)]['price'] }}</font>
+                                    </strong>
+                                </p>
+                                <hr color="#cccccc" size="1" width="220">
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" height="60" bgcolor="#ffffff" align="center">
+                                {% if configs.buttonType == 1 %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                        <tr>
+                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                <strong>
+                                                    <a target="_blank" href="{{ products[c]['link'] }}" style="text-decoration: none;">
+                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                    </a>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% else %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                <a target="_blank" href="{{ products[c]['link'] }}" style="text-decoration: none;">
+                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}"  alt="Imagem indispon&iacute;vel" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" height="60" bgcolor="#ffffff" align="center">
+                                {% if configs.buttonType == 1 %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                        <tr>
+                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                <strong>
+                                                    <a target="_blank" href="{{ products[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                    </a>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% else %}
+                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                        <tr>
+                                            <td align="center">
+                                                <a target="_blank" href="{{ products[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}"  alt="Imagem indispon&iacute;vel" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+
+                            </td>
+                            <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="{{ configs['borderColor'] }}" height="10" colspan="7"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            {% set c =  c + 2%}
+        {% endfor %}
+    <!-- END 2 Per Line Template -->
+
+
+
+    <!-- START 1 Per Line Template -->
+    {% else %}
+        {% if totalProducts > 1 %}
+            {% for i in 2..totalProducts %}
+
+                <tr>
+                    <td>
+                        <table bgcolor="{{ configs['borderColor'] }}" cellpadding="0" cellspacing="2" width="100%"
+                               align="center">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <table bgcolor="#ffffff" cellpadding="5" cellspacing="0" width="100%"
+                                           align="center">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="{{ products[i]['link'] }}" style="text-decoration: none;"
+                                                   target="_blank">
+                                                    <img border="0" src="{{ products[i]['image'] }}" width="200"
+                                                         alt="Imagem indispon&iacute;vel">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table align="center">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                <font face="{{ configs['font'] }}"
+                                                                      size="{{ configs['titleSize'] }}"
+                                                                      color="{{ configs['titleColor'] }}">
+                                                                    {{ products[i]['name'] }}
+                                                                </font>
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td bgcolor="#ffffff">
+                                                            <p>
+                                                                <strong>
+                                                                    <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                                                    <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ products[i]['price'] }}</font>
+                                                                </strong>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            {% if configs.buttonType == 1 %}
+                                                            <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                                                <tr>
+                                                                    <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                                        <strong>
+                                                                            <a target="_blank" href="{{ products[i]['link'] }}" style="text-decoration: none;">
+                                                                                <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                                            </a>
+                                                                        </strong>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            {% else %}
+                                                            <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                                                <tr>
+                                                                    <td align="center">
+                                                                        <a target="_blank" href="{{ products[i]['link'] }}" style="text-decoration: none;">
+                                                                            <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            {% endif %}
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    <!-- END 1 Per Line Template -->
+    <tr>
+        <td height="10"></td>
+    </tr>
+    </tbody>
+</table>
+{% endif %}
+<!-- END PRODUCTS LIST -->
+
+<!-- START RECOMMENDATIONS LIST -->
+{% if  totalRecommendations > 0 %}
+    <table width="596" bgcolor="{{ configs['borderColor'] }}" cellpadding="0" cellspacing="0" align="center">
+        <tbody>
+        <tr>
+            <td height="10"></td>
+        </tr>
+        <!-- Start Featured Product -->
+        <tr>
+            <td align="center">
+                <font face="{{ configs['font'] }}">
+                    <h2>{{ configs['recommendationTitle'] }}</h2>
+                    <p>{{ configs['recommendationDesc'] }}</p>
+                </font>
+            </td>
+        </tr>
+        <!-- End Featured Product -->
+
+
+        <!-- Start 3 Per Line Template -->
+        {% if totalRecommendations in [3,6,9,12] %}
+            {% set totalList = totalRecommendations / 3 %}
+            {% set c = 1%}
+            {% for i in 1..totalList %}
+
+                <tr>
+                    <td height="10"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" align="center">
+                            <tbody>
+                            <tr>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center"><br>
+                                    <a href="{{ recommendations[c]['link'] }}" style="text-decoration: none;" target="_blank">
+                                        <img border="0" src="{{ recommendations[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                             alt="Imagem indispon&iacute;vel">
+                                    </a>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center"><br>
+                                    <a href="{{ recommendations[(c + 1)]['link'] }}" style="text-decoration: none;" target="_blank">
+                                        <img border="0" src="{{ recommendations[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                             alt="Imagem indispon&iacute;vel">
+                                    </a>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center"><br>
+                                    <a href="{{ recommendations[(c + 2)]['link'] }}" style="text-decoration: none;" target="_blank">
+                                        <img border="0" src="{{ recommendations[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                             alt="Imagem indispon&iacute;vel">
+                                    </a>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                                face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                                color="{{ configs['titleColor'] }}"><br>{{ recommendations[c]['name'] }}<br></font></strong>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                                face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                                color="{{ configs['titleColor'] }}"><br>{{ recommendations[(c + 1)]['name'] }}<br></font></strong>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                                face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                                color="{{ configs['titleColor'] }}"><br>{{ recommendations[(c + 2)]['name'] }}<br></font></strong>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+
+
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center"><br>
+                                    <hr color="#cccccc" size="1" width="170">
+                                    {% if recommendations[c]['price'] <  recommendations[c]['priceFrom']%}
+                                        <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ recommendations[c]['priceFrom'] }}</font></p>
+                                    {% endif  %}
+                                    <p>
+                                        <strong>
+                                            <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                            <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ recommendations[c]['price'] }}</font>
+                                        </strong>
+                                    </p>
+                                    <hr color="#cccccc" size="1" width="170">
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center"><br>
+                                    <hr color="#cccccc" size="1" width="170">
+                                    {% if recommendations[(c + 1)]['price'] <  recommendations[(c + 1)]['priceFrom']%}
+                                        <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ recommendations[(c + 1)]['priceFrom'] }}</font></p>
+                                    {% endif  %}
+                                    <p>
+                                        <strong>
+                                            <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                            <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ recommendations[(c + 1)]['price'] }}</font>
+                                        </strong>
+                                    </p>
+                                    <hr color="#cccccc" size="1" width="170">
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center"><br>
+                                    <hr color="#cccccc" size="1" width="170">
+                                    {% if recommendations[(c + 2)]['price'] <  recommendations[(c + 2)]['priceFrom']%}
+                                        <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ recommendations[(c + 2)]['priceFrom'] }}</font></p>
+                                    {% endif  %}
+                                    <p>
+                                        <strong>
+                                            <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                            <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ recommendations[(c + 2)]['price'] }}</font>
+                                        </strong>
+                                    </p>
+                                    <hr color="#cccccc" size="1" width="170">
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="60" bgcolor="#ffffff" align="center">
+                                    {% if configs.buttonType == 1 %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                            <tr>
+                                                <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                    <strong>
+                                                        <a target="_blank" href="{{ recommendations[c]['link'] }}" style="text-decoration: none;">
+                                                            <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                        </a>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% else %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                            <tr>
+                                                <td align="center">
+                                                    <a target="_blank" href="{{ recommendations[c]['link'] }}" style="text-decoration: none;">
+                                                        <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}"  alt="Imagem indispon&iacute;vel" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="60" bgcolor="#ffffff" align="center">
+                                    <!-- BUTTON 2 -->
+                                    {% if configs.buttonType == 1 %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                            <tr>
+                                                <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                    <strong>
+                                                        <a target="_blank" href="{{ recommendations[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                            <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                        </a>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% else %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                            <tr>
+                                                <td align="center">
+                                                    <a target="_blank" href="{{ recommendations[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                        <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" bgcolor="#ffffff" align="center">
+                                    <!-- BUTTON 3 -->
+                                    {% if configs.buttonType == 1 %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                            <tr>
+                                                <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                    <strong>
+                                                        <a target="_blank" href="{{ recommendations[(c + 2)]['link'] }}" style="text-decoration: none;">
+                                                            <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                        </a>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% else %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                            <tr>
+                                                <td align="center">
+                                                    <a target="_blank" href="{{ recommendations[(c + 2)]['link'] }}" style="text-decoration: none;">
+                                                        <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="188" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="{{ configs['borderColor'] }}" height="10" colspan="11"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                {% set c =  c + 3%}
+
+            {% endfor %}
+            <!-- END 3 Per Line Template -->
+
+
+
+            <!-- START 2 Per Line Template -->
+        {% elseif totalRecommendations in [2,4,8,10] %}
+            {% set totalList = totalRecommendations / 2 %}
+            {% set c = 1%}
+            {% for i in 1..totalList %}
+                <tr>
+                    <td height="10"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" cellpadding="0" cellspacing="0" bgcolor="#ffffff" align="center">
+                            <tbody>
+                            <tr>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" bgcolor="#ffffff" align="center"><br>
+                                    <a href="{{ recommendations[c]['link'] }}" style="text-decoration: none;" target="_blank">
+                                        <img border="0" src="{{ recommendations[c]['image'] }}" width="{{ configs['imageSize'] }}"
+                                             alt="Imagem indispon&iacute;vel">
+                                    </a>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" bgcolor="#ffffff" align="center"><br> <a href="{{ recommendations[(c + 1)]['link'] }}" style="text-decoration: none;" target="_blank">
+                                        <img border="0" src="{{ recommendations[(c + 1)]['image'] }}" width="{{ configs['imageSize'] }}"
+                                             alt="Imagem indispon&iacute;vel">
+                                    </a>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                                face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                                color="{{ configs['titleColor'] }}"><br>{{ recommendations[c]['name'] }}<br></font></strong>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" bgcolor="#ffffff" align="center" valign="top"><br><strong><font
+                                                face="{{ configs['font'] }}" size="{{ configs['titleSize'] }}"
+                                                color="{{ configs['titleColor'] }}"><br>{{ recommendations[(c + 1)]['name'] }}<br></font></strong>
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" bgcolor="#ffffff" align="center"><br>
+                                    <hr color="#cccccc" size="1" width="220">
+                                    {% if recommendations[c]['price'] <  recommendations[c]['priceFrom']%}
+                                        <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ recommendations[c]['priceFrom'] }}</font></p>
+                                    {% endif  %}
+                                    <p>
+                                        <strong>
+                                            <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                            <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ recommendations[c]['price'] }}</font>
+                                        </strong>
+                                    </p>
+                                    <hr color="#cccccc" size="1" width="220">
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" bgcolor="#ffffff" align="center"><br>
+                                    <hr color="#cccccc" size="1" width="220">
+                                    {% if recommendations[(c + 1)]['price'] <  recommendations[(c + 1)]['priceFrom']%}
+                                        <p><font face="{{ configs['font'] }}" color="#9b9b9b" size="{{ configs['priceFromSize'] }}">DE {{ recommendations[(c + 1)]['priceFrom'] }}</font></p>
+                                    {% endif  %}
+                                    <p>
+                                        <strong>
+                                            <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                            <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ recommendations[(c + 1)]['price'] }}</font>
+                                        </strong>
+                                    </p>
+                                    <hr color="#cccccc" size="1" width="220">
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" height="60" bgcolor="#ffffff" align="center">
+                                    {% if configs.buttonType == 1 %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                            <tr>
+                                                <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                    <strong>
+                                                        <a target="_blank" href="{{ recommendations[c]['link'] }}" style="text-decoration: none;">
+                                                            <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                        </a>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% else %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                            <tr>
+                                                <td align="center">
+                                                    <a target="_blank" href="{{ recommendations[c]['link'] }}" style="text-decoration: none;">
+                                                        <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}"  alt="Imagem indispon&iacute;vel" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" height="60" bgcolor="#ffffff" align="center">
+                                    {% if configs.buttonType == 1 %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                            <tr>
+                                                <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                    <strong>
+                                                        <a target="_blank" href="{{ recommendations[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                            <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                        </a>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% else %}
+                                        <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                            <tr>
+                                                <td align="center">
+                                                    <a target="_blank" href="{{ recommendations[(c + 1)]['link'] }}" style="text-decoration: none;">
+                                                        <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}"  alt="Imagem indispon&iacute;vel" />
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    {% endif %}
+
+                                </td>
+                                <td width="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="10" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="289" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                                <td width="2" height="2" bgcolor="{{ configs['borderColor'] }}"></td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="{{ configs['borderColor'] }}" height="10" colspan="7"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                {% set c =  c + 2%}
+            {% endfor %}
+            <!-- END 2 Per Line Template -->
+
+
+
+            <!-- START 1 Per Line Template -->
+        {% else %}
+            {% if totalRecommendations > 0 %}
+                {% for i in 1..totalRecommendations %}
+
+                    <tr>
+                        <td>
+                            <table bgcolor="{{ configs['borderColor'] }}" cellpadding="0" cellspacing="2" width="100%"
+                                   align="center">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <table bgcolor="#ffffff" cellpadding="5" cellspacing="0" width="100%"
+                                               align="center">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="{{ recommendations[i]['link'] }}" style="text-decoration: none;"
+                                                       target="_blank">
+                                                        <img border="0" src="{{ recommendations[i]['image'] }}" width="200"
+                                                             alt="Imagem indispon&iacute;vel">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <table align="center">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <strong>
+                                                                    <font face="{{ configs['font'] }}"
+                                                                          size="{{ configs['titleSize'] }}"
+                                                                          color="{{ configs['titleColor'] }}">
+                                                                        {{ recommendations[i]['name'] }}
+                                                                    </font>
+                                                                </strong>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td bgcolor="#ffffff">
+                                                                <p>
+                                                                    <strong>
+                                                                        <font face="{{ configs['font'] }}" color="#9b9b9b" size="2">POR </font>
+                                                                        <font face="{{ configs['font'] }}" size="{{ configs['priceSize'] }}" color="{{ configs['priceColor'] }}">{{ recommendations[i]['price'] }}</font>
+                                                                    </strong>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                {% if configs.buttonType == 1 %}
+                                                                    <table cellpadding="0" cellspacing="0" bgcolor="{{ configs['buttonColor'] }}" align="center">
+                                                                        <tr>
+                                                                            <td bgcolor="{{ configs['buttonColor'] }}" align="center" style="padding: 10px;">
+                                                                                <strong>
+                                                                                    <a target="_blank" href="{{ recommendations[i]['link'] }}" style="text-decoration: none;">
+                                                                                        <font face="{{ configs['font'] }}" color="#ffffff">{{ configs['buttonText'] }}</font>
+                                                                                    </a>
+                                                                                </strong>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                {% else %}
+                                                                    <table cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center">
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <a target="_blank" href="{{ recommendations[i]['link'] }}" style="text-decoration: none;">
+                                                                                    <img src="{{ configs['buttonImg'] }}" width="{{ configs['buttonImgSize'] }}" alt="Imagem indispon&iacute;vel" />
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+        <!-- END 1 Per Line Template -->
+        <tr>
+            <td height="10"></td>
+        </tr>
+        </tbody>
+    </table>
+{% endif %}
+<!-- END RECOMMENDATIONS LIST -->

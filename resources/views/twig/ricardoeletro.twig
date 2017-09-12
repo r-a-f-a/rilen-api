@@ -1,0 +1,407 @@
+{% set totalProducts=products|length %}
+{% set totalRecommendations=recommendations|length %}
+{% if totalProducts > 0 %}
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td>
+            <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+              </tr>
+            </table>
+            <!-- FEATURE -->
+            <table width="350" height="350" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td><table width="350" height="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><a href="{{ products[0]['productLink'] }}" title="{{ products[0]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[0]['image'] }}" alt="Produto" width="350" height="350" border="0" style="display:block;"/></a></td>
+                    <td><table width="350" height="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td><table width="280" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[0]['productDesc'] }}</strong></font></td>
+                          </tr>
+                          <tr>
+                            <td height="30"></td>
+                          </tr>
+                          <tr>
+                            <td align="center" bgcolor="{{ configs['backgroundColor'] }}"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado.png" alt="" /></td>
+                          </tr>
+                          <tr>
+                            <td height="10"></td>
+                          </tr>
+                          <tr>
+                            <td align="center"><a href="{{ products[0]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre.png" alt="" /></a></td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table>
+            <!-- END FEATURE -->
+            {% if totalProducts in [4] or totalProducts in [4,7] or totalProducts in [4,7,10] %}
+              {% set totalList=(totalProducts - 1) / 3 %}
+              {% set c=1 %}
+              {% for i in 1..totalList %}
+              <!-- 3PL -->
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+                </tr>
+              </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+                </tr>
+              </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><a href="{{ products[c]['productLink'] }}" title="{{ products[c]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[c]['image'] }}" alt="Produto" width="220" height="220" border="0" style="display:block;"/></a></td>
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento5.png" alt="" /></td>
+                      <td><a href="{{ products[(c + 1)]['productLink'] }}" title="{{ products[(c + 1)]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[(c + 1)]['image'] }}" alt="Produto" width="220" height="220" border="0" style="display:block;"/></a></td>
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento5.png" alt="" /></td>
+                      <td><a href="{{ products[(c + 2)]['productLink'] }}" title="{{ products[(c + 2)]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[(c + 2)]['image'] }}" alt="Produto" width="220" height="220" border="0" style="display:block;"/></a></td>
+                    </tr>
+                  </table>
+                  <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[c]['productDesc'] }}</strong></font></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                      </table>
+
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                      <td><table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[(c + 1)]['productDesc'] }}</strong></font></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                      </table>
+
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                      <td><table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[(c + 2)]['productDesc'] }}</strong></font></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                      </table>
+
+                    </tr>
+                  </table>
+                  <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                          <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado2.png" alt="" /></td>
+                        </tr>
+                        <tr>
+                          <td height="10"></td>
+                        </tr>
+                        <tr>
+                          <td align="center"><a href="{{ products[c]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre2.png" alt="" /></a></td>
+                        </tr>
+                      </table>
+
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                      <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                          <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado2.png" alt="" /></td>
+                        </tr>
+                        <tr>
+                          <td height="10"></td>
+                        </tr>
+                        <tr>
+                          <td align="center"><a href="{{ products[(c + 1)]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre2.png" alt="" /></a></td>
+                        </tr>
+                      </table>
+
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                      <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                          <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado2.png" alt="" /></td>
+                        </tr>
+                        <tr>
+                          <td height="10"></td>
+                        </tr>
+                        <tr>
+                          <td align="center"><a href="{{ products[(c + 2)]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre2.png" alt="" /></a></td>
+                        </tr>
+                      </table>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table>
+              <!-- END 3PL -->
+              {% set c=c + 3 %}
+              {% endfor %}
+            {% elseif totalProducts in [3] or totalProducts in [3,5] or totalProducts in [3,5,7] or totalProducts in [3,5,7,9] %}
+              {% set totalList=(totalProducts - 1) / 2 %}
+              {% set c=1 %}
+              {% for i in 1..totalList %}
+              <!-- 2PL -->
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+                </tr>
+              </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+                </tr>
+              </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><table width="700" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td><a href="{{ products[c]['productLink'] }}" title="{{ products[c]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[c]['image'] }}" alt="Produto" width="340" height="340" border="0" style="display:block;"/></a></td>
+                          <td align="center"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento2.png" alt="" /></td>
+                          <td><a href="{{ products[c]['productLink'] }}" title="{{ products[(c + 1)]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[(c + 1)]['image'] }}" alt="Produto" width="340" height="340" border="0" style="display:block;"/></a></td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table>
+                  <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><table width="280" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[c]['productDesc'] }}</strong></font></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                      </table></td>
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento4.png" alt="" /></td>
+                      <td><table width="280" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[(c + 1)]['productDesc'] }}</strong></font></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                      </table></td>
+                    </tr>
+                  </table>
+                  <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                          <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado.png" alt="" /></td>
+                        </tr>
+                        <tr>
+                          <td height="10"></td>
+                        </tr>
+                        <tr>
+                          <td align="center"><a href="{{ products[c]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre.png" alt="" /></a></td>
+                        </tr>
+                      </table></td>
+                      <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento3.png" alt="" /></td>
+                      <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                          <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado.png" alt="" /></td>
+                        </tr>
+                        <tr>
+                          <td height="10"></td>
+                        </tr>
+                        <tr>
+                          <td align="center"><a href="{{ products[(c + 1)]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre.png" alt="" /></a></td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table>
+              <!-- END 2PL -->
+              {% set c=c + 2 %}
+              {% endfor %}
+            {% else %}
+              {% if totalProducts > 1 %}
+                {% for i in 1..(totalProducts - 1) %}
+                <!-- 1PL -->
+                <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+                  </tr>
+                </table>
+                <table width="350" height="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><table width="350" height="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td><a href="{{ products[i]['productLink'] }}" title="{{ products[i]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ products[i]['image'] }}" alt="Produto" width="350" height="350" border="0" style="display:block;"/></a></td>
+                        <td><table width="350" height="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><table width="280" border="0" align="center" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td align="center"><font face="arial"><strong style="font-size:15px;">{{ products[i]['productDesc'] }}</strong></font></td>
+                              </tr>
+                              <tr>
+                                <td height="30"></td>
+                              </tr>
+                              <tr>
+                                <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado.png" alt="" /></td>
+                              </tr>
+                              <tr>
+                                <td height="10"></td>
+                              </tr>
+                              <tr>
+                                <td align="center"><a href="{{ products[i]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre.png" alt="" /></a></td>
+                              </tr>
+                            </table></td>
+                          </tr>
+                        </table></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table>
+                <!-- END 1PL -->
+                {% endfor %}
+              {% endif %}
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+{% endif %}
+{% if totalRecommendations >= 3 %}
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+          </tr>
+        </table>
+        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/faixa_confiraoutrasofertas.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+          </tr>
+        </table>
+        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+          </tr>
+        </table>
+        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><img alt="" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento.png" style="display: block; border-width: 0px; border-style: solid;" /></td>
+          </tr>
+        </table>
+
+        {% set c=0 %}
+        {% set totalLines = (totalRecommendations / 3) | round(0, 'floor') %}
+        {% for l in range(1, totalLines) %}
+          <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><a href="{{ recommendations[c]['productLink'] }}" title="{{ recommendations[c]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ recommendations[c]['image'] }}" alt="Produto" width="220" height="220" border="0" style="display:block;"/></a></td>
+                  <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento5.png" alt="" /></td>
+                  <td><a href="{{ recommendations[(c + 1)]['productLink'] }}" title="{{ recommendations[(c + 1)]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ recommendations[(c + 1)]['image'] }}" alt="Produto" width="220" height="220" border="0" style="display:block;"/></a></td>
+                  <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento5.png" alt="" /></td>
+                  <td><a href="{{ recommendations[(c + 2)]['productLink'] }}" title="{{ recommendations[(c + 2)]['productDesc'] }}" target="_blank" style="text-decoration:none; color:#333333;"><img src="{{ recommendations[(c + 2)]['image'] }}" alt="Produto" width="220" height="220" border="0" style="display:block;"/></a></td>
+                </tr>
+              </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center"><font face="arial"><strong style="font-size:15px;">{{ recommendations[c]['productDesc'] }}</strong></font></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                  </table>
+
+                  <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                  <td><table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center"><font face="arial"><strong style="font-size:15px;">{{ recommendations[(c + 1)]['productDesc'] }}</strong></font></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                  </table>
+
+                  <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                  <td><table width="220" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center"><font face="arial"><strong style="font-size:15px;">{{ recommendations[(c + 2)]['productDesc'] }}</strong></font></td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                  </table>
+
+                </tr>
+              </table>
+              <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                      <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado2.png" alt="" /></td>
+                    </tr>
+                    <tr>
+                      <td height="10"></td>
+                    </tr>
+                    <tr>
+                      <td align="center"><a href="{{ recommendations[c]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre2.png" alt="" /></a></td>
+                    </tr>
+                  </table>
+
+                  <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                  <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                      <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado2.png" alt="" /></td>
+                    </tr>
+                    <tr>
+                      <td height="10"></td>
+                    </tr>
+                    <tr>
+                      <td align="center"><a href="{{ recommendations[(c + 1)]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre2.png" alt="" /></a></td>
+                    </tr>
+                  </table>
+
+                  <td><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/espacamento6.png" alt="" /></td>
+                  <td><table border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                      <td align="center"bgcolor="#ffffff"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_estoquelimitado2.png" alt="" /></td>
+                    </tr>
+                    <tr>
+                      <td height="10"></td>
+                    </tr>
+                    <tr>
+                      <td align="center"><a href="{{ recommendations[(c + 2)]['productLink'] }}" style="text-decoration: none;" target="_blank"><img border="0" src="http://imgnews.ricardoeletro.com.br/automatico/automaticos_novo/botao_cliqueecompre2.png" alt="" /></a></td>
+                    </tr>
+                  </table>
+                </tr>
+              </table></td>
+            </tr>
+          </table>
+          {% set c = c + 3 %}
+        {% endfor %}
+      </td>
+    </tr>
+  </table>
+{% endif %}
