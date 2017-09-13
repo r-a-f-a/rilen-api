@@ -56,13 +56,6 @@ COPY ./docker/development/files/php.ini /etc/opt/remi/php70/php.ini
 RUN ln -s /usr/bin/php70  /usr/bin/php
 
 # -----------------------------------------------------------------------------
-# Install NewRelic
-# -----------------------------------------------------------------------------
-#RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
-#RUN yum -y install newrelic-php5 newrelic-install install
-#RUN echo 'newrelic.license="290194fef51e6d3e758837279628a337810cfa48"' >> /etc/opt/remi/php70/php.ini
-
-# -----------------------------------------------------------------------------
 # Install Systemd
 # -----------------------------------------------------------------------------
 RUN yum -y install systemd; yum clean all;
@@ -113,7 +106,4 @@ RUN chmod -v +x /usr/bin/init.sh
 # Execute init.sh on container start
 # -----------------------------------------------------------------------------
 CMD ["/usr/bin/init.sh"]
-#ENTRYPOINT ["/usr/bin/init.sh"]
-#ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-
 
